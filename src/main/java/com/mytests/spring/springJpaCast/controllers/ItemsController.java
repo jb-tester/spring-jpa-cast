@@ -4,7 +4,6 @@ import com.mytests.spring.springJpaCast.dto.LongsProjection;
 import com.mytests.spring.springJpaCast.dto.ShortsProjection;
 import com.mytests.spring.springJpaCast.model.Item;
 import com.mytests.spring.springJpaCast.repositories.ItemsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

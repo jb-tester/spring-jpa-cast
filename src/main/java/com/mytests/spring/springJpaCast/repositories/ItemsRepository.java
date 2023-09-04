@@ -8,21 +8,23 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-/**
- * *
- * <p>Created by irina on 11/2/2021.</p>
- * <p>Project: spring-java-records</p>
- * *
- */
+
 public interface ItemsRepository extends CrudRepository<Item, Integer> {
 
     @Query("""
-           select i from Item i
-           where i.cathegory = :cat
-           and i.price < :price
-           and i.discount > 0
+            select it from Item it
+            where it.cathegory = :cat
+            and it.price < :price
+            and it.discount > 0
            """)
     List<Item> findByMultipleCriteria(String cat, int price);
+
+    @Query("""
+          select concat(record.title, " ", record.comment)
+          from Item record
+          where record.cathegory = :cat
+         """)
+    List<String> findDiscountByCategory(String cat);
 
     //@Query("select new com.mytests.spring.springJpaCast.dto.ShortsProjection(cast(i.discount as short), cast(i.price/10 as Short)) from Item i") // incorrect,but no errors are shown
     //List<ShortsProjection> testCastForShortsIncorrect();
