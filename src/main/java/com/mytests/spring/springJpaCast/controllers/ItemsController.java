@@ -7,6 +7,8 @@ import com.mytests.spring.springJpaCast.repositories.ItemsRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 @RestController
 public class ItemsController {
@@ -57,5 +59,10 @@ public class ItemsController {
             rez = rez + item + " ";
         }
         return rez;
+    }
+
+    @RequestMapping("/testNativeVarcharCast")
+    public List<Item> testNativeVarcharCast() {
+        return itemsRepository.nativeCastToChar("fruits");
     }
 }
