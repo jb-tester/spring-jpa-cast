@@ -98,4 +98,17 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id, title, comment, cathegory, price, total, discount);
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", comment='" + comment + '\'' +
+                ", cathegory='" + cathegory + '\'' +
+                ", price=" + price +
+                ", total=" + total +
+                ", discount=" + discount +
+                '}';
+    }
 }
