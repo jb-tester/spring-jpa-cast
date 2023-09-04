@@ -42,10 +42,19 @@ public class ItemsController {
         }
         return rez;
     }
-    @RequestMapping("/testCastingInWhereClause")
+    @RequestMapping("/testCastingInWhereClause1")
     public String testCastingInWhereClause() {
         String rez = " ";
         for (Item item : itemsRepository.testCastingInWhereClause((short) 5, 500L)) {
+            rez = rez + item + " ";
+        }
+        return rez;
+    }
+
+    @RequestMapping("/testCastingInWhereClause2")
+    public String testCastingInWhereClauseUsingFQN() {
+        String rez = " ";
+        for (Item item : itemsRepository.testCastingInWhereClauseUsingFQN((short) 5, 500L)) {
             rez = rez + item + " ";
         }
         return rez;

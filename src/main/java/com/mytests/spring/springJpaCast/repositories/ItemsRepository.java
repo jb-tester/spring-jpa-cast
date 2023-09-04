@@ -38,4 +38,7 @@ public interface ItemsRepository extends CrudRepository<Item, Integer> {
 
     @Query("select i from Item i where cast(i.discount as short) = ?1 or cast(i.total as long) = ?2")
     List<Item> testCastingInWhereClause(Short arg1, Long arg2);
+
+    @Query("select i from Item i where cast(i.discount as java.lang.Short) = ?1 or cast(i.total as java.lang.Long) = ?2")
+    List<Item> testCastingInWhereClauseUsingFQN(Short arg1, Long arg2);
 }
