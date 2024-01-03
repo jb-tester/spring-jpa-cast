@@ -1,0 +1,41 @@
+###
+GET http://localhost:8080/testLongsCasting
+
+<> 2024-01-03T165245.200.txt
+
+###
+GET http://localhost:8080/testLongsCasting2
+
+<> 2024-01-03T165307.200.txt
+
+###
+GET http://localhost:8080/testShortsCasting2
+
+<> 2024-01-03T165321.200.txt
+
+###
+GET http://localhost:8080/testCastingInWhereClause1
+
+<> 2024-01-03T165335.200.txt
+
+###
+GET http://localhost:8080/testCastingInWhereClause2
+
+<> 2024-01-03T165347.200.txt
+
+###
+GET http://localhost:8080/testNativeVarcharCast
+
+<> 2024-01-03T165402.200.json
+
+###
+GET http://localhost:8080/getByUUID/short
+
+
+
+###
+GET http://localhost:8080/getByUUID/fqn
+
+
+
+###

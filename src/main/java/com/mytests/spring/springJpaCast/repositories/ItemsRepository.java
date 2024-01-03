@@ -54,4 +54,5 @@ public interface ItemsRepository extends CrudRepository<Item, Integer> {
 	""")
     List<Item> nativeCastToChar(@Param("t") String t);
 
+
 }
