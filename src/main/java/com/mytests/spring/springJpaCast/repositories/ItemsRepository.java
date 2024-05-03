@@ -47,12 +47,25 @@ public interface ItemsRepository extends CrudRepository<Item, Integer> {
     @Query("select i from Item i where cast(i.discount as java.lang.Short) = ?1 or cast(i.total as java.lang.Long) = ?2") // correct, shown as error
     List<Item> testCastingInWhereClauseUsingFQN(Short arg1, Long arg2);
 
+
+    // native casts:
+    // https://youtrack.jetbrains.com/issue/IDEA-162498/ - doesn't work really
+
     @Query(nativeQuery = true, value = """
 		SELECT *
-		FROM item t
+		FROM jbtests.item t
+		WHERE cast(t.cathegory as varchar) = :cat
+	""")
+    List<Item> nativeCastToVarchar(@Param("cat") String cat);
+
+    @Query(nativeQuery = true, value = """
+		SELECT *
+		FROM jbtests.item t
 		WHERE cast(t.cathegory as char(45)) = :t
 	""")
     List<Item> nativeCastToChar(@Param("t") String t);
+
+    ///
 
 
 }

@@ -61,8 +61,13 @@ public class ItemsController {
         return rez;
     }
 
+    @RequestMapping("/testNativeCharCast")
+    public List<Item> testNativeCharCast() {
+        return itemsRepository.nativeCastToChar("fruits");
+    }
+
     @RequestMapping("/testNativeVarcharCast")
     public List<Item> testNativeVarcharCast() {
-        return itemsRepository.nativeCastToChar("fruits");
+        return itemsRepository.nativeCastToVarchar("fruits");
     }
 }

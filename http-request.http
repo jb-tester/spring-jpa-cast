@@ -1,4 +1,7 @@
 ###
+GET http://localhost:8080/variousTypesCast
+
+###
 GET http://localhost:8080/testLongsCasting
 
 <> 2024-01-03T165245.200.txt
@@ -24,9 +27,12 @@ GET http://localhost:8080/testCastingInWhereClause2
 <> 2024-01-03T165347.200.txt
 
 ###
-GET http://localhost:8080/testNativeVarcharCast
+GET http://localhost:8080/testNativeCharCast
 
 <> 2024-01-03T165402.200.json
+
+###
+GET http://localhost:8080/testNativeVarcharCast
 
 ###
 GET http://localhost:8080/getByUUID/short
