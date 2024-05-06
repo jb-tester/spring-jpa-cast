@@ -18,7 +18,7 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     @Query(value = "select e from uuid_entity e where e.id = cast(?1 as java.util.UUID)")
     List<UuidEntity> testCastToTypeFQN(String id);
 
-
+     // https://youtrack.jetbrains.com/issue/IDEA-352888
     // string, character, byte, short, integer, long, float, double, time, date, timestamp, localtime, localdate, localdatetime,
     // zoneddatetime, biginteger, bigdecimal, duration, instant, binary, boolean, truefalse, yesno, numericboolean
 
@@ -28,27 +28,27 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToString2();
     @Query("select e from uuid_entity e where cast(e.foo as java.lang.String) = ''")
     List<UuidEntity> castToString3();
-    @Query("select e from uuid_entity e where cast(e.char1 as character) = 'a'")
+    @Query("select e from uuid_entity e where cast(e.char1 as character) = 'a'") // 'number type is expected'
     List<UuidEntity> castToCharacter1();
-    @Query("select e from uuid_entity e where cast(e.char1 as ChaRacter) = '1'")
+    @Query("select e from uuid_entity e where cast(e.char1 as Character) = 'a'")
     List<UuidEntity> castToCharacter2();
-    @Query("select e from uuid_entity e where cast(e.char1 as java.lang.Character) = '1'")
+    @Query("select e from uuid_entity e where cast(e.char1 as java.lang.Character) = 'a'")
     List<UuidEntity> castToCharacter3();
-    @Query("select e from uuid_entity e where cast(e.flag1 as byte) = 0")
+    @Query("select e from uuid_entity e where cast(e.flag1 as byte) = 0") // 'byte type is expected'
     List<UuidEntity> castToByte1();
-    @Query("select e from uuid_entity e where cast(e.flag1 as ByTe) = 1")
+    @Query("select e from uuid_entity e where cast(e.flag1 as Byte) = 1")
     List<UuidEntity> castToByte2();
     @Query("select e from uuid_entity e where cast(e.flag1 as java.lang.Byte) = 0")
     List<UuidEntity> castToByte3();
-    @Query("select e from uuid_entity e where cast(e.num1 as short) = 0")
+    @Query("select e from uuid_entity e where cast(e.num1 as short) = 0") // 'short type is expected'
     List<UuidEntity> castToShort1();
-    @Query("select e from uuid_entity e where cast(e.num1 as ShOrt) = 0")
+    @Query("select e from uuid_entity e where cast(e.num1 as Short) = 0")
     List<UuidEntity> castToShort2();
     @Query("select e from uuid_entity e where cast(e.num1 as java.lang.Short) = 0")
     List<UuidEntity> castToShort3();
-    @Query("select e from uuid_entity e where cast(e.num1 as integer) = 0")
+    @Query("select e from uuid_entity e where cast(e.num1 as integer) = 0") // 'integer type is expected'
     List<UuidEntity> castToInteger1();
-    @Query("select e from uuid_entity e where cast(e.num1 as IntEger) = 0")
+    @Query("select e from uuid_entity e where cast(e.num1 as Integer) = 0")
     List<UuidEntity> castToInteger2();
     @Query("select e from uuid_entity e where cast(e.num1 as java.lang.Integer) = 0")
     List<UuidEntity> castToInteger3();
@@ -58,23 +58,23 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToBigInteger2();
     @Query("select e from uuid_entity e where cast(e.num2 as bigdecimal) = 0")
     List<UuidEntity> castToBigDecimal1();
-    @Query("select e from uuid_entity e where cast(e.num2 as BigDecimal) = 0")
+    @Query("select e from uuid_entity e where cast(e.num2 as BigDecimal) = 0") // 'BigDecimal type is expected'
     List<UuidEntity> castToBigDecimal2();
-    @Query("select e from uuid_entity e where cast(e.num1 as long) = 1L")
+    @Query("select e from uuid_entity e where cast(e.num1 as long) = 1L") // 'long type is expected'
     List<UuidEntity> castToLong1();
-    @Query("select e from uuid_entity e where cast(e.num1 as LoNg) = 1L")
+    @Query("select e from uuid_entity e where cast(e.num1 as Long) = 1L")
     List<UuidEntity> castToLong2();
     @Query("select e from uuid_entity e where cast(e.num1 as java.lang.Long) = 1L")
     List<UuidEntity> castToLong3();
-    @Query("select e from uuid_entity e where cast(e.num3 as float) = 0")
+    @Query("select e from uuid_entity e where cast(e.num3 as float) = 1.1") // 'float type is expected'
     List<UuidEntity> castToFloat1();
-    @Query("select e from uuid_entity e where cast(e.num3 as FlOat) = 0")
+    @Query("select e from uuid_entity e where cast(e.num3 as Float) = 1.1")
     List<UuidEntity> castToFloat2();
-    @Query("select e from uuid_entity e where cast(e.num3 as java.lang.Float) = 0")
+    @Query("select e from uuid_entity e where cast(e.num3 as java.lang.Float) = 1.1")
     List<UuidEntity> castToFloat3();
-    @Query("select e from uuid_entity e where cast(e.num2 as double) = 0")
+    @Query("select e from uuid_entity e where cast(e.num2 as double) = 0") // 'double type is expected'
     List<UuidEntity> castToDouble1();
-    @Query("select e from uuid_entity e where cast(e.num2 as DoUble) = 0")
+    @Query("select e from uuid_entity e where cast(e.num2 as Double) = 0")
     List<UuidEntity> castToDouble2();
     @Query("select e from uuid_entity e where cast(e.num2 as java.lang.Double) = 0")
     List<UuidEntity> castToDouble3();
