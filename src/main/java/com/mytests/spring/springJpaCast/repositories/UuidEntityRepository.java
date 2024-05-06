@@ -5,6 +5,8 @@ import com.mytests.spring.springJpaCast.model.UuidEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
@@ -56,10 +58,14 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToBigInteger1();
     @Query("select e from uuid_entity e where cast(e.num2 as BigIntEger) = 0")
     List<UuidEntity> castToBigInteger2();
+    @Query("select e from uuid_entity e where cast(e.num2 as java.math.BigInteger) = 0")
+    List<UuidEntity> castToBigInteger3();
     @Query("select e from uuid_entity e where cast(e.num2 as bigdecimal) = 0")
     List<UuidEntity> castToBigDecimal1();
     @Query("select e from uuid_entity e where cast(e.num2 as BigDecimal) = 0") // 'BigDecimal type is expected'
     List<UuidEntity> castToBigDecimal2();
+    @Query("select e from uuid_entity e where cast(e.num2 as java.math.BigDecimal) = :arg")
+    List<UuidEntity> castToBigDecimal3(BigDecimal arg);
     @Query("select e from uuid_entity e where cast(e.num1 as long) = 1L") // 'long type is expected'
     List<UuidEntity> castToLong1();
     @Query("select e from uuid_entity e where cast(e.num1 as Long) = 1L")
@@ -144,6 +150,12 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToNumericBoolean1();
     @Query("select e from uuid_entity e where cast(e.flag1 as NumericBoolean) = 1")
     List<UuidEntity> castToNumericBoolean2();
+
+    // https://youtrack.jetbrains.com/issue/IDEA-352890
+    @Query("select e from uuid_entity e where 2 * cast(e.num1 as BigDecimal) > :arg ")
+    List<UuidEntity> castToBigDecimal4(BigDecimal arg);
+    @Query("select e from uuid_entity e where 2 * cast(e.num1 as BigInteger) > :arg ")
+    List<UuidEntity> castToBigInteger4(BigInteger arg);
 
 
 }

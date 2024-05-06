@@ -7,3 +7,5 @@ https://youtrack.jetbrains.com/issue/IDEA-331513
 https://youtrack.jetbrains.com/issue/IDEA-341963
 
 https://youtrack.jetbrains.com/issue/IDEA-352888
+
+https://youtrack.jetbrains.com/issue/IDEA-352890

@@ -4,6 +4,8 @@ import com.mytests.spring.springJpaCast.model.UuidEntity;
 import com.mytests.spring.springJpaCast.repositories.UuidEntityRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -91,6 +93,9 @@ public class UuidEntityController {
         uuidEntityRepository.castToString1();
         uuidEntityRepository.castToString2();
         uuidEntityRepository.castToString3();
+        uuidEntityRepository.castToBigDecimal3(BigDecimal.valueOf(10.1));
+        uuidEntityRepository.castToBigDecimal4(BigDecimal.valueOf(10));
+        uuidEntityRepository.castToBigInteger4(BigInteger.valueOf(10));
         return uuidEntityRepository.castToYesNo0();
     }
 }
