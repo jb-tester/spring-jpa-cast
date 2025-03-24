@@ -90,9 +90,9 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToDate2();
     @Query("select e from uuid_entity e where cast(e.date1 as java.util.Date) = local date ")
     List<UuidEntity> castToDate3();
-    @Query("select e from uuid_entity e where cast(e.time1 as time) = local time ")
+    @Query("select e from uuid_entity e where cast(e.time1 as time) = local time ") // cannot resolve symbol 'time'
     List<UuidEntity> castToTime1();
-    @Query("select e from uuid_entity e where cast(e.time1 as Time) = local time ")
+    @Query("select e from uuid_entity e where cast(e.time1 as Time) = local time ") // cannot resolve symbol 'Time'
     List<UuidEntity> castToTime2();
     @Query("select e from uuid_entity e where cast(e.time2 as timestamp ) = current timestamp ")
     List<UuidEntity> castToTimestamp1();
@@ -110,25 +110,25 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToLocaldatetime1();
     @Query("select e from uuid_entity e where cast(e.date1 as LocalDateTime) = local_datetime ")
     List<UuidEntity> castToLocaldatetime2();
-    @Query("select e from uuid_entity e where cast(e.date1 as zoneddatetime) = local datetime ")
+    @Query("select e from uuid_entity e where cast(e.date1 as zoneddatetime) = local datetime ") // cannot resolve symbol 'zoneddatetime'
     List<UuidEntity> castToZoneddatetime1();
-    @Query("select e from uuid_entity e where cast(e.date1 as ZonedDateTime) = local_datetime ")
+    @Query("select e from uuid_entity e where cast(e.date1 as ZonedDateTime) = local_datetime ") // cannot resolve symbol 'ZonedDateTime'
     List<UuidEntity> castToZoneddatetime2();
-    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as duration) = 0")
+    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as duration) = 0") // cannot resolve symbol 'duration'
     List<UuidEntity> castToDuration1();
-    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as DuRation) = 0")
+    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as DuRation) = 0") // cannot resolve symbol 'DuRation'
     List<UuidEntity> castToDuration2();
-    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as java.time.Duration) = 0")
+    @Query("select e from uuid_entity e where cast(timediff(now(),e.time1) as java.time.Duration) = 0") // java.time.Duration type is expected
     List<UuidEntity> castToDuration3();
-    @Query("select e from uuid_entity e where cast(e.time2 as instant) = current timestamp ")
+    @Query("select e from uuid_entity e where cast(e.time2 as instant) = current timestamp ")  // cannot resolve symbol 'instant'
     List<UuidEntity> castToInstant1();
-    @Query("select e from uuid_entity e where cast(e.time2 as Instant) = current timestamp ")
+    @Query("select e from uuid_entity e where cast(e.time2 as Instant) = current timestamp ") // cannot resolve symbol 'Instant'
     List<UuidEntity> castToInstant2();
     @Query("select e from uuid_entity e where cast(e.time2 as java.time.Instant) = current timestamp ")
     List<UuidEntity> castToInstant3();
-    @Query("select e from uuid_entity e where cast(e.flag3 as binary) = null ")
+    @Query("select e from uuid_entity e where cast(e.flag3 as binary) = null ") // cannot resolve symbol 'binary'
     List<UuidEntity> castToBinary1();
-    @Query("select e from uuid_entity e where cast(e.flag3 as Binary) = null ")
+    @Query("select e from uuid_entity e where cast(e.flag3 as Binary) = null ") // cannot resolve symbol 'Binary'
     List<UuidEntity> castToBinary2();
     @Query("select e from uuid_entity e where cast(e.flag1 as boolean) = true")
     List<UuidEntity> castToBoolean1();
@@ -136,19 +136,19 @@ public interface UuidEntityRepository extends CrudRepository<UuidEntity, UUID> {
     List<UuidEntity> castToBoolean2();
     @Query("select e from uuid_entity e where cast(e.flag1 as java.lang.Boolean) = true")
     List<UuidEntity> castToBoolean3();
-    @Query("select e from uuid_entity e where cast(e.flag1 as truefalse) = true")
+    @Query("select e from uuid_entity e where cast(e.flag1 as truefalse) = true") // cannot resolve symbol 'truefalse'
     List<UuidEntity> castToTrueFalse1();
-    @Query("select e from uuid_entity e where cast(e.flag1 as TrueFalse) = false")
+    @Query("select e from uuid_entity e where cast(e.flag1 as TrueFalse) = false") // cannot resolve symbol 'TrueFalse'
     List<UuidEntity> castToTrueFalse2();
     @Query("select cast(e.flag2 as yesno) from uuid_entity e ")
     List<String> castToYesNo0();
-    @Query("select e from uuid_entity e where cast(e.flag1 as yesno) = true")
+    @Query("select e from uuid_entity e where cast(e.flag1 as yesno) = true") // cannot resolve symbol 'yesno'
     List<UuidEntity> castToYesNo1();
-    @Query("select e from uuid_entity e where cast(e.flag1 as YesNo) = false")
+    @Query("select e from uuid_entity e where cast(e.flag1 as YesNo) = false") // cannot resolve symbol 'YesNo'
     List<UuidEntity> castToYesNo2();
-    @Query("select e from uuid_entity e where cast(e.flag1 as numericboolean) = 0")
+    @Query("select e from uuid_entity e where cast(e.flag1 as numericboolean) = 0") // cannot resolve symbol 'numericboolean'
     List<UuidEntity> castToNumericBoolean1();
-    @Query("select e from uuid_entity e where cast(e.flag1 as NumericBoolean) = 1")
+    @Query("select e from uuid_entity e where cast(e.flag1 as NumericBoolean) = 1") // cannot resolve symbol 'NumericBoolean'
     List<UuidEntity> castToNumericBoolean2();
 
     // https://youtrack.jetbrains.com/issue/IDEA-352890
